@@ -12,9 +12,9 @@ UniOne PHP SDK — client for the UniOne transactional email Web API (Web API 1.
   composer install
   ```
 
-- **Source label.** Every request carries the query parameter `platform=php-sdk.1.1.2`, added in one place, the shared request client (`ApiClient`); a package built on this SDK puts its own label in front: `<package>.<version>,php-sdk.1.1.2`.
+- **Source label.** Every request carries the query parameter `platform=php-sdk.1.1.3`, added in one place, the shared request client (`ApiClient`); a package built on this SDK puts its own label in front: `<package>.<version>,php-sdk.1.1.3`.
 - **Tests.** Before a release the generator builds and lints the package and runs every example of docs/ and of this file against a mock of the API: no real API key, no real sends.
-- **Release.** The version (1.1.2 in composer.json) and the tag `v1.1.2` come from the generator; README.md states the Web API version the release was generated from.
+- **Release.** The version (1.1.3 in composer.json) and the tag `v1.1.3` come from the generator; README.md states the Web API version the release was generated from.
 - **Secrets.** Never commit API keys; the examples read `UNIONE_API_KEY` from the environment.
 
 ## Integrating UniOne with this SDK
