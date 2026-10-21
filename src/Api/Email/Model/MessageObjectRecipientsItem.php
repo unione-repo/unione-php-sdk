@@ -139,6 +139,43 @@ final class MessageObjectRecipientsItem implements \JsonSerializable
     }
 
     /**
+     * A recipient from "email" or "Name <email>": the name goes to the to_name substitution (the name in the "To"
+     * header).
+     *
+     * @param array<string, string>|null $substitutions More substitutions of the recipient.
+     */
+    public static function fromAddress(string $address, ?array $substitutions = null): self
+    {
+        $email = \trim($address);
+        $name = '';
+        if (\preg_match('/^(.*)<([^>]+)>$/s', $email, $match) === 1) {
+            $email = \trim($match[2]);
+            $name = \trim(\trim($match[1]), '"');
+        }
+        if ($name !== '') {
+            $substitutions = ($substitutions ?? []) + ['to_name' => $name];  // an explicit to_name wins
+        }
+
+        $recipient = new self($email);
+        if ($substitutions !== null) {
+            $recipient->setSubstitutions($substitutions);
+        }
+
+        return $recipient;
+    }
+
+    /**
+     * Sets the metadata of the recipient (returned in the webhook events of its email); fluent.
+     *
+     * @param array<string, string> $metadata
+     */
+    public function withMetadata(array $metadata): self
+    {
+        $this->setMetadata($metadata);
+        return $this;
+    }
+
+    /**
      * @return array<string, mixed> JSON-ready array: null fields are omitted, empty objects are \stdClass.
      */
     public function toArray(): array
