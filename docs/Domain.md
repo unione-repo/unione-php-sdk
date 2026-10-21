@@ -33,13 +33,16 @@ You should add then DNS records like this to all of the domains you want to conf
 
 `@             IN TXT "unione-validate-hash=483bb362ebdbeedd755cfb1d4d661"`
 
-`us._domainkey IN TXT "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDo7"`
+`us._domainkey IN TXT "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDo7"`
 
 `@             IN TXT  "v=spf1 include:spf.unione.io ~all"`
 
+`_dmarc        IN CNAME "example.com.dmarc.unione.io."`
+
 - First record value should contain "verification-record" field returned by get-dns-records method "as is".
-- Second record value should contain "dkim" field value after "p=". Mind the name of this record! "us._domainkey." prefix is important for DKIM selector of UniOne to work properly.
-- Third record contains optional, but very recommended SPF entry. Probably you already have one, then just add append include:spf.unione.io right after v=spf1.
+- Second record value should contain "dkim" field value after "v=DKIM1; k=rsa; p=". Mind the name of this record! "us._domainkey." prefix is important for DKIM selector of UniOne to work properly.
+- Third record contains optional, but very recommended SPF entry. It is not returned by the method. Probably you already have one, then just add append include:spf.unione.io right after v=spf1.
+- Fourth record is a CNAME of the "_dmarc" host to the "dmarc" field value: UniOne then publishes the DMARC policy of the domain. If the domain already has its own DMARC TXT record, keep it instead.
 
 Syntax requirements of different DNS providers may differ:
 - sometimes it's necesarry to put full domain name instead of @ sign.
@@ -219,6 +222,8 @@ try {
 Creates a sandbox domain for the account or returns the existing one.
 
 Returns an account sandbox domain that is ready for use in the `from_email` field of [email/send](https://docs.unione.io/en/web-api-ref#email-send). If the account has no sandbox domain, UniOne creates one and returns it. Repeated calls return the same domain.
+
+The sandbox domain is removed 31 days after it was created; the next call creates a new one. Up to 100 emails a day can be sent from it (the default limit of the account).
 
 The method is available only with an account API key. Project API keys cannot create sandbox domains.
 

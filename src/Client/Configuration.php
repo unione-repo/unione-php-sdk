@@ -35,7 +35,7 @@ final class Configuration
         private readonly string $baseUrl = self::DEFAULT_BASE_URL,
         /** Request timeout in seconds. */
         private readonly float $timeout = 30.0,
-        private readonly string $userAgent = 'UniOne-php-client/2.1.3',
+        private readonly string $userAgent = 'UniOne-php-client/2.2.3',
         /** Package that uses the SDK and its version, e.g. "laravel.1.0.0": goes to the "platform" query parameter before the SDK one. */
         private readonly ?string $platform = null,
     ) {

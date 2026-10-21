@@ -46,6 +46,22 @@ final class BodyObject implements \JsonSerializable
     }
 
     /**
+     * An HTML body, with an optional plain-text part.
+     */
+    public static function html(string $html, ?string $plaintext = null): self
+    {
+        return new self(html: $html, plaintext: $plaintext);
+    }
+
+    /**
+     * A plain-text body.
+     */
+    public static function text(string $plaintext): self
+    {
+        return new self(plaintext: $plaintext);
+    }
+
+    /**
      * @return array<string, mixed> JSON-ready array: null fields are omitted, empty objects are \stdClass.
      */
     public function toArray(): array
