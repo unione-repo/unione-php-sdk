@@ -48,7 +48,7 @@ try {
     $response = $client->suppression()->set((new SuppressionSetRequest('email@example.com', 'unsubscribed'))
         ->setCreated('2021-12-19 10:15:49'));
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -88,7 +88,7 @@ try {
     $response = $client->suppression()->get(new SuppressionGetRequest('email@example.com'));
     echo $response->getEmail(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -136,7 +136,7 @@ try {
         ->setLimit(50));
     var_dump($response->getSuppressions());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -172,6 +172,6 @@ $client = UniOne::client('YOUR_API_KEY');
 try {
     $response = $client->suppression()->delete(new SuppressionDeleteRequest('email@example.com'));
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```

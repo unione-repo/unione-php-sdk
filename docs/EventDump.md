@@ -61,7 +61,7 @@ try {
         ->setFormat('csv'));
     echo $response->getDumpId(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -99,7 +99,7 @@ try {
     $response = $client->eventDump()->get(new EventDumpGetRequest('Gqfasjh34tlasd'));
     var_dump($response->getEventDump());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -134,7 +134,7 @@ try {
     $response = $client->eventDump()->list();
     var_dump($response->getEventDumps());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -170,6 +170,6 @@ $client = UniOne::client('YOUR_API_KEY');
 try {
     $response = $client->eventDump()->delete(new EventDumpDeleteRequest('Gqfasjh34tlasd'));
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```

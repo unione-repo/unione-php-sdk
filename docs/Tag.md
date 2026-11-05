@@ -42,7 +42,7 @@ try {
     $response = $client->tag()->list();
     var_dump($response->getTags());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -78,6 +78,6 @@ $client = UniOne::client('YOUR_API_KEY');
 try {
     $response = $client->tag()->delete(new TagDeleteRequest(54));
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```

@@ -87,7 +87,7 @@ try {
     ));
     echo $response->getJobId(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -128,6 +128,6 @@ $client = UniOne::client('YOUR_API_KEY');
 try {
     $response = $client->email()->subscribe(new EmailSubscribeRequest('email@example.com', 'Example', 'email@example.com'));
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```

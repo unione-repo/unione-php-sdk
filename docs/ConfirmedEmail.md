@@ -46,7 +46,7 @@ try {
     $response = $client->confirmedEmail()->create(new ConfirmedEmailRequest('dev@example.com'));
     var_dump($response->getConfirmedEmail());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -81,7 +81,7 @@ try {
     $response = $client->confirmedEmail()->list();
     var_dump($response->getConfirmedEmails());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -119,6 +119,6 @@ try {
     $response = $client->confirmedEmail()->delete(new ConfirmedEmailRequest('dev@example.com'));
     echo $response->getMessage(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```

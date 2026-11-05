@@ -49,7 +49,7 @@ try {
     $response = $client->obsolete()->unsubscribedSet(new ObsoleteUnsubscribedSetRequest('email@example.com'));
     echo $response->getAddress(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -88,7 +88,7 @@ try {
     $response = $client->obsolete()->unsubscribedCheck(new ObsoleteUnsubscribedCheckRequest('email@example.com'));
     echo $response->getAddress(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -127,6 +127,6 @@ try {
         ->setDateFrom('2020-10-14'));
     var_dump($response->getUnsubscribed());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```

@@ -58,7 +58,7 @@ try {
     ));
     echo $response->getProjectId(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -106,7 +106,7 @@ try {
         ->setProjectApiKey('your api_key'));
     echo $response->getProjectApiKey(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -147,7 +147,7 @@ try {
         ->setProjectApiKey('your api_key'));
     var_dump($response->getProjects());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -188,6 +188,6 @@ try {
         ->setProjectId('1234567890')
         ->setProjectApiKey('your api_key'));
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```

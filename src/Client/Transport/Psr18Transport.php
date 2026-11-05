@@ -50,7 +50,11 @@ final class Psr18Transport implements TransportInterface
         try {
             $response = $this->httpClient->sendRequest($request);
         } catch (ClientExceptionInterface $e) {
-            throw new ApiException('HTTP request failed: ' . $e->getMessage(), 0, null, null, $e);
+            // PSR-18 has no timeout exception: the clients say so in the message (Guzzle/cURL "timed out", Symfony
+            // HttpClient "Idle timeout reached", "Max duration was reached")
+            $timeout = 1 === \preg_match('/timed out|timeout reached|max duration/i', $e->getMessage());
+            throw new ApiException(($timeout ? 'HTTP request timed out: ' : 'HTTP request failed: ') . $e->getMessage(), 0, null,
+                null, $e, '', null, $timeout ? ApiException::KIND_TIMEOUT : ApiException::KIND_NETWORK);
         }
 
         return [

@@ -62,7 +62,7 @@ try {
     ));
     var_dump($response->getTemplate());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -100,7 +100,7 @@ try {
     $response = $client->template()->get(new TemplateGetRequest('00000000-0000-0000-0000-000000000000'));
     var_dump($response->getTemplate());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -141,7 +141,7 @@ try {
     $response = $client->template()->list(new TemplateListRequest());
     var_dump($response->getTemplates());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -177,6 +177,6 @@ $client = UniOne::client('YOUR_API_KEY');
 try {
     $response = $client->template()->delete(new TemplateDeleteRequest('00000000-0000-0000-0000-000000000000'));
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```

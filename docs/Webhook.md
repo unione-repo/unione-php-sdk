@@ -61,7 +61,7 @@ try {
     $response = $client->webhook()->set(new WebhookSetRequest('https://yourhost.example.com/unione-webhook'));
     var_dump($response->getObject());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -99,7 +99,7 @@ try {
     $response = $client->webhook()->get(new WebhookGetRequest('https://example.com/webhook'));
     var_dump($response->getObject());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -138,7 +138,7 @@ try {
     $response = $client->webhook()->list(new WebhookListRequest());
     var_dump($response->getObjects());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -176,7 +176,7 @@ $client = UniOne::client('YOUR_API_KEY');
 try {
     $response = $client->webhook()->delete(new WebhookDeleteRequest('https://example.com/webhook'));
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 

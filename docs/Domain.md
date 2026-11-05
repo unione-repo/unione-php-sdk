@@ -81,7 +81,7 @@ try {
     $response = $client->domain()->getDnsRecords(new DomainGetDnsRecordsRequest('example.com'));
     echo $response->getDomain(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -121,7 +121,7 @@ try {
     $response = $client->domain()->validateVerificationRecord(new DomainValidateVerificationRecordRequest('example.com'));
     echo $response->getMessage(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -161,7 +161,7 @@ try {
     $response = $client->domain()->validateDkim(new DomainValidateDkimRequest('example.com'));
     echo $response->getMessage(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -204,7 +204,7 @@ try {
         ->setDomain('example.com'));
     var_dump($response->getDomains());
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -245,7 +245,7 @@ try {
     $response = $client->domain()->getSandboxDomain();
     echo $response->getDomain(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -285,6 +285,6 @@ try {
     $response = $client->domain()->delete(new DomainDeleteRequest('example.com'));
     echo $response->getMessage(), PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
