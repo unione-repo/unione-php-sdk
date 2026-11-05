@@ -42,7 +42,7 @@ try {
     $response = $client->system()->ping();
     echo $response->userId, PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -82,6 +82,6 @@ try {
     $response = $client->system()->info();
     echo $response->userId, PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```

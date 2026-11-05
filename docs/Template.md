@@ -65,7 +65,7 @@ try {
     ));
     var_dump($response->template);
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -105,7 +105,7 @@ try {
     ));
     var_dump($response->template);
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -146,7 +146,7 @@ try {
     $response = $client->template()->list(new TemplateListRequest());
     var_dump($response->templates);
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -184,6 +184,6 @@ try {
         id: '00000000-0000-0000-0000-000000000000',
     ));
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```

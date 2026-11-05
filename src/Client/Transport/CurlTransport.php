@@ -33,7 +33,12 @@ final class CurlTransport implements TransportInterface
 
         $response = \curl_exec($handle);
         if (!\is_string($response)) {
-            throw new ApiException('HTTP request failed: ' . \curl_error($handle));
+            if (28 === \curl_errno($handle)) {  // CURLE_OPERATION_TIMEDOUT
+                throw new ApiException(\sprintf('HTTP request timed out after %s s', $timeout), 0, null, null, null, '', null,
+                    ApiException::KIND_TIMEOUT);
+            }
+            throw new ApiException('HTTP request failed: ' . \curl_error($handle), 0, null, null, null, '', null,
+                ApiException::KIND_NETWORK);
         }
 
         return [

@@ -63,7 +63,7 @@ try {
     ));
     echo $response->dumpId, PHP_EOL;
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -103,7 +103,7 @@ try {
     ));
     var_dump($response->eventDump);
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -138,7 +138,7 @@ try {
     $response = $client->eventDump()->list();
     var_dump($response->eventDumps);
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -176,6 +176,6 @@ try {
         dumpId: 'Gqfasjh34tlasd',
     ));
 } catch (ApiException $e) {
-    echo $e->getErrorCode(), ': ', $e->getMessage(), PHP_EOL;
+    echo $e->getMessage(), PHP_EOL;
 }
 ```
