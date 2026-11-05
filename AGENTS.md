@@ -87,7 +87,7 @@ try {
   composer install
   ```
 
-- **Source label.** Every request carries the query parameter `platform=php-sdk.2.3.0`, added in one place, the shared request client (`ApiClient`); a package built on this SDK puts its own label in front: `<package>.<version>,php-sdk.2.3.0`.
+- **Source label.** Every request carries the query parameter `platform=php-sdk.2.3.1`, added in one place, the shared request client (`ApiClient`); a package built on this SDK puts its own label in front: `<package>.<version>,php-sdk.2.3.1`.
 - **Tests.** `composer install --no-interaction --no-progress && vendor/bin/phpunit` runs the tests of the package (tests/ or test/, not published) offline: the API is faked (a fake transport or a mock server on 127.0.0.1), never the real API, no real key; add a test with every change of the client. Before a release the generator also builds and lints the package and runs every example of docs/ and of this file against a mock of the API. The CI (.github/workflows/test.yml) runs the tests on every push and pull request over the supported runtimes; release.yml publishes a tag only after they pass.
-- **Release.** The version (2.3.0 in composer.json) and the tag `v2.3.0` come from the generator; README.md states the Web API version the release was generated from.
+- **Release.** The version (2.3.1 in composer.json) and the tag `v2.3.1` come from the generator; README.md states the Web API version the release was generated from.
 - **Secrets.** Never commit API keys; the examples read `UNIONE_API_KEY` from the environment.

@@ -68,8 +68,8 @@ final class ClientTest extends TestCase
 
         $this->assertCount(1, $transport->requests);
         $request = $transport->requests[0];
-        $this->assertSame(self::BASE_URL . '/email/send.json?platform=php-sdk.2.3.0', $request['url']);
-        $this->assertSame('php-sdk.2.3.0', ApiClient::PLATFORM);
+        $this->assertSame(self::BASE_URL . '/email/send.json?platform=php-sdk.2.3.1', $request['url']);
+        $this->assertSame('php-sdk.2.3.1', ApiClient::PLATFORM);
         $this->assertSame('test-key', $request['headers']['X-API-KEY']);
         $this->assertSame('application/json', $request['headers']['Content-Type']);
         $this->assertEquals(['message' => [
@@ -94,7 +94,7 @@ final class ClientTest extends TestCase
 
         $info = self::client($transport)->system()->info();
 
-        $this->assertSame(self::BASE_URL . '/system/info.json?platform=php-sdk.2.3.0', $transport->requests[0]['url']);
+        $this->assertSame(self::BASE_URL . '/system/info.json?platform=php-sdk.2.3.1', $transport->requests[0]['url']);
         $this->assertSame('{}', $transport->requests[0]['body']);
         $this->assertSame(11344, $info->userId);
         $this->assertSame('user@example.com', $info->email);
