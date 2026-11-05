@@ -54,7 +54,7 @@ final class Configuration
         string $apiKey,
         string $baseUrl = self::DEFAULT_BASE_URL,
         float $timeout = 30.0,
-        string $userAgent = 'UniOne-php-client/1.3.0',
+        string $userAgent = 'UniOne-php-client/1.3.1',
         ?string $platform = null
     ) {
         $this->apiKey = $apiKey;

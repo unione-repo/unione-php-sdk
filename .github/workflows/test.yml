@@ -11,6 +11,11 @@ on:
 permissions:
   contents: read
 
+# a new push of the ref cancels the run of the previous one (called by release.yml: the group of the tag)
+concurrency:
+  group: tests-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-22.04
